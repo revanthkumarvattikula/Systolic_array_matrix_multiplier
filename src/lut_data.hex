@@ -1,0 +1,15 @@
+# Filename: generate_lut_hex.py
+
+data_size = 8
+max_val = 1 << data_size  # 256 for 8-bit
+output_width = 2 * data_size  # 16 bits
+filename = "lut_data.hex"
+
+with open(filename, "w") as f:
+    for i in range(max_val):
+        for j in range(max_val):
+            product = i * j
+            hex_val = format(product, '04x')  # 4 hex digits for 16-bit values
+            f.write(hex_val + "\n")
+
+print(f"{filename} generated with {max_val * max_val} entries.")

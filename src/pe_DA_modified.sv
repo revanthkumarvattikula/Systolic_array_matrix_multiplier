@@ -1,4 +1,4 @@
-module pe_25 (
+module pe_DA_modified (
   input  clk,
   input  reset,
   input  [3:0] in_a,

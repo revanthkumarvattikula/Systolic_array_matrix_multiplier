@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module pe #(parameter DATA_SIZE = 4)(
+module pe_DA #(parameter DATA_SIZE = 4)(
   input wire clk,
   input wire reset,
   input wire [DATA_SIZE-1:0] in_a,

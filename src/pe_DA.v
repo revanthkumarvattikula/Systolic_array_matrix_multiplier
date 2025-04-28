@@ -1,23 +1,23 @@
 `timescale 1ns / 1ps
 
-module pe_DA #(parameter DATA_SIZE = 4)(
+module pe_DA #(parameter data_size = 4)(
   input wire clk,
   input wire reset,
-  input wire [DATA_SIZE-1:0] in_a,
-  input wire [DATA_SIZE-1:0] in_b,
-  output reg signed [2*DATA_SIZE:0] out_c,
-  output reg [DATA_SIZE-1:0] out_a,
-  output reg [DATA_SIZE-1:0] out_b
+  input wire [data_size-1:0] in_a,
+  input wire [data_size-1:0] in_b,
+  output reg signed [2*data_size:0] out_c,
+  output reg [data_size-1:0] out_a,
+  output reg [data_size-1:0] out_b
 );
 
-  wire signed [2*DATA_SIZE-1:0] lut_data;
-  wire [2*DATA_SIZE-1:0] addr;
+  wire signed [2*data_size-1:0] lut_data;
+  wire [2*data_size-1:0] addr;
 
   assign addr = {in_a, in_b};
 
   rom_lut #(
-    .ADDR_WIDTH(2*DATA_SIZE),
-    .DATA_WIDTH(2*DATA_SIZE)
+    .ADDR_WIDTH(2*data_size),
+    .DATA_WIDTH(2*data_size)
   ) rom_inst (
     .addr(addr),
     .data(lut_data)
